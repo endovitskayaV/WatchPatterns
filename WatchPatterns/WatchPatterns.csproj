@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventsForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventsForm1.Designer.cs">
+      <DependentUpon>EventsForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EventsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EventsForm.Designer.cs">
+      <DependentUpon>EventsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Observer\IWatchForm.cs" />
     <Compile Include="Observer\AlarmObserver.cs" />
     <Compile Include="Decorator\AnalogTimeDecorator.cs" />
@@ -56,12 +68,6 @@
     </Compile>
     <Compile Include="Forms\ClockForm.Designer.cs">
       <DependentUpon>ClockForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\EventsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\EventsForm.Designer.cs">
-      <DependentUpon>EventsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Observer\IObserver.cs" />
     <Compile Include="Observer\IObservable.cs" />
@@ -77,6 +83,9 @@
     </Compile>
     <Compile Include="Watch.cs" />
     <Compile Include="Decorator\WatchComponent.cs" />
+    <EmbeddedResource Include="EventsForm1.resx">
+      <DependentUpon>EventsForm1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ClockForm.resx">
       <DependentUpon>ClockForm.cs</DependentUpon>
     </EmbeddedResource>

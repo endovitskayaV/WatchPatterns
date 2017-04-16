@@ -11,7 +11,7 @@ namespace WatchPatterns
 
         public void Update(TimeSpan time)
         {
-            StopWatchForm form = new StopWatchForm ();
+            EventsForm1 form = new EventsForm1();
             form.Show();
         }
     }

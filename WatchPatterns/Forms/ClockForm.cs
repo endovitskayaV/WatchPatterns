@@ -79,7 +79,7 @@ namespace WatchPatterns
 
         private void EventsBtn_Click(object sender, EventArgs e)
         {
-            EventsForm form = new EventsForm(watch);
+            EventsForm form = new EventsForm (watch);
             form.Show();
         }
     }
