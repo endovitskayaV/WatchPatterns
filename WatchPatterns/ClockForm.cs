@@ -74,7 +74,7 @@ namespace WatchPatterns
                 graphics.Clear(Color.White);
                 clock.Draw(dateLbl, graphics);
                 drawing = false;
-            }
+            } 
         }
 
         private void eventsBtn_Click(object sender, EventArgs e)
