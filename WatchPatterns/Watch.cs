@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace WatchPatterns
 {
-    public class Watch : WatchComponent
+    public class Watch : WatchComponent, IObservable
     {
         public override void Draw(Label dL, Graphics graphTime)
         {
@@ -20,5 +20,11 @@ namespace WatchPatterns
             dL.Text = Date.ToString("d");
             
         }
+
+        public void AddObserver(IObserver o) { }
+        public void RemoveObserver(IObserver o) { }
+        public void NotifyObservers() { }
+       
+       
     }
 }

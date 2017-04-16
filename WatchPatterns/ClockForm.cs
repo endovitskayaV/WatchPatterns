@@ -17,6 +17,8 @@ namespace WatchPatterns
         private TimeDecorator clock;
         private Watch watch;
         private Graphics graphics;
+        private Timer timer;
+        private bool drawing = false;
 
 
         public ClockForm()
@@ -27,6 +29,18 @@ namespace WatchPatterns
             clock.SetWatch(watch);
             graphics = pictureBox.CreateGraphics();
             changeModeBtn.Text = "Analog";
+
+            timer = new Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += Timer_Elapsed;
+            timer.AutoReset = true;
+            timer.Enabled = true;
+            timer.Start();
+        }
+
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            Draw();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -53,11 +67,18 @@ namespace WatchPatterns
 
         private void Draw()
         {
-            
-            clock.SetWatch(watch);
-            graphics.Clear(Color.White);
-            clock.Draw(dateLbl, graphics);
-           
+            if (!drawing)
+            {
+                drawing = true;
+                clock.SetWatch(watch);
+                graphics.Clear(Color.White);
+                clock.Draw(dateLbl, graphics);
+                drawing = false;
+            }
+        }
+
+        private void eventsBtn_Click(object sender, EventArgs e)
+        {
 
         }
     }
