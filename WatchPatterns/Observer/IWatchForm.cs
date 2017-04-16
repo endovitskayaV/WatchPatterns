@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace WatchPatterns
 {
-    public interface IObserver
+    interface IWatchForm
     {
-        void Update(TimeSpan time);
+        TimeSpan GetFormTime();
     }
 }

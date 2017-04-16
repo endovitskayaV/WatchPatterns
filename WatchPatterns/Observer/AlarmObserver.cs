@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace WatchPatterns
 {
-    public interface IObserver
+    class AlarmObserver : IObserver
     {
-        void Update(TimeSpan time);
+        public void Update(TimeSpan time)
+        {
+            
+        }
     }
 }

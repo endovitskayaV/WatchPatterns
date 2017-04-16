@@ -17,7 +17,7 @@ namespace WatchPatterns
         private TimeDecorator clock;
         private Watch watch;
         private Graphics graphics;
-        private Timer timer;
+        private System.Timers.Timer timer;
         private bool drawing = false;
 
 
@@ -30,7 +30,7 @@ namespace WatchPatterns
             graphics = pictureBox.CreateGraphics();
             changeModeBtn.Text = "Analog";
 
-            timer = new Timer();
+            timer = new System.Timers.Timer();
             timer.Interval = 1000;
             timer.Elapsed += Timer_Elapsed;
             timer.AutoReset = true;
@@ -74,12 +74,14 @@ namespace WatchPatterns
                 graphics.Clear(Color.White);
                 clock.Draw(dateLbl, graphics);
                 drawing = false;
-            } 
+            }
         }
 
-        private void eventsBtn_Click(object sender, EventArgs e)
+        private void EventsBtn_Click(object sender, EventArgs e)
         {
-
+            EventsForm form = new EventsForm(watch);
+            form.Show();
         }
     }
 }
+ 
