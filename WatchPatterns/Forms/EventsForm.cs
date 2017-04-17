@@ -10,9 +10,10 @@ using System.Windows.Forms;
 
 namespace WatchPatterns
 {
-    public partial class EventsForm : Form, IWatchForm
+    public partial class EventsForm : Form
     {
         private Watch watch;
+
         public EventsForm(Watch watch)
         {
             InitializeComponent();
@@ -25,20 +26,23 @@ namespace WatchPatterns
         }
 
         private void addBtn_Click(object sender, EventArgs e)
-        {
+        { 
+            IObserver newEvent = new AlarmObserver();
+            DateTime curUserTime = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, (int)numericUpDownH.Value, (int)numericUpDownM.Value, (int)numericUpDownS.Value);
             switch (comboBox.Text)
             {
-                case "Alarm": new AlarmObserver().Update(watch.Time); break;
-                case "Timer": new TimerObserver().Update(watch.Time); break;
-                case "Stopwatch": new StopwatchObserver().Update(watch.Time); break;
+                case "Alarm":
+                    MessageBox.Show("Alarn added");
+                    newEvent = new AlarmObserver(watch, "alarm.mp3", curUserTime);
+                    break;
+                case "Timer":
+                    break;
+                case "Stopwatch":
+                    
+                    break;
             }
-        }
 
-        public TimeSpan GetFormTime()
-        {
-            return new TimeSpan(Convert.ToInt32(numericUpDownH.Value), Convert.ToInt32(numericUpDownM.Value), Convert.ToInt32(numericUpDownS.Value));
+            watch.AddObserver(newEvent);
         }
-    }
-
-        
-    }
+    }      
+  }

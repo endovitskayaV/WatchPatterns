@@ -46,7 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Observer\IWatchForm.cs" />
+    <Compile Include="Forms\TimeViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TimeViewForm.Designer.cs">
+      <DependentUpon>TimeViewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Observer\AlarmObserver.cs" />
     <Compile Include="Decorator\AnalogTimeDecorator.cs" />
     <Compile Include="Decorator\TimeDecorator.cs" />
@@ -69,12 +74,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Observer\TimerObserver.cs" />
     <Compile Include="Observer\StopwatchObserver.cs" />
-    <Compile Include="Forms\StopWatchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\StopWatchForm.Designer.cs">
-      <DependentUpon>StopWatchForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Watch.cs" />
     <Compile Include="Decorator\WatchComponent.cs" />
     <EmbeddedResource Include="Forms\ClockForm.resx">
@@ -82,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EventsForm.resx">
       <DependentUpon>EventsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TimeViewForm.resx">
+      <DependentUpon>TimeViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,9 +94,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\StopWatchForm.resx">
-      <DependentUpon>StopWatchForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

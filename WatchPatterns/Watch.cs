@@ -31,8 +31,7 @@ namespace WatchPatterns
 
         private void DrawDate(Label dL)
         {
-            dL.Text = Date.ToString("d");
-            
+            dL.Text = Date.ToString("d");         
         }
 
         public void AddObserver(IObserver observer)
@@ -49,7 +48,7 @@ namespace WatchPatterns
         {
             foreach (IObserver o in observers)
             {
-                o.Update(this.Time); 
+                o.OnHandleEvent(this.Time);
             }
         }
 

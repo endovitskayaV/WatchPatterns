@@ -9,9 +9,9 @@ namespace WatchPatterns
 {
     class StopwatchObserver : IObserver
     {
-        public void Update(TimeSpan time)
+       public void OnHandleEvent(TimeSpan time)
         {
-            StopWatchForm form = new StopWatchForm();
+            TimeViewForm form = new TimeViewForm("Stopwatch");
             form.Show();
         }
        

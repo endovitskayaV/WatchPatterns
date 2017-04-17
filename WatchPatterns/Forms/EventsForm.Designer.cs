@@ -62,6 +62,7 @@
             this.numericUpDownH.Name = "numericUpDownH";
             this.numericUpDownH.Size = new System.Drawing.Size(46, 20);
             this.numericUpDownH.TabIndex = 1;
+            //this.numericUpDownH.ValueChanged += new System.EventHandler(this.numericUpDownH_ValueChanged);
             // 
             // numericUpDownM
             // 
@@ -74,6 +75,7 @@
             this.numericUpDownM.Name = "numericUpDownM";
             this.numericUpDownM.Size = new System.Drawing.Size(44, 20);
             this.numericUpDownM.TabIndex = 2;
+            //this.numericUpDownM.ValueChanged += new System.EventHandler(this.numericUpDownM_ValueChanged);
             // 
             // numericUpDownS
             // 
@@ -86,6 +88,7 @@
             this.numericUpDownS.Name = "numericUpDownS";
             this.numericUpDownS.Size = new System.Drawing.Size(42, 20);
             this.numericUpDownS.TabIndex = 3;
+            //this.numericUpDownS.ValueChanged += new System.EventHandler(this.numericUpDownS_ValueChanged);
             // 
             // label1
             // 

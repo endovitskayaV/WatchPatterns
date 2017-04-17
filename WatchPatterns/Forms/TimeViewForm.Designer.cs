@@ -1,6 +1,6 @@
 ﻿namespace WatchPatterns
 {
-    partial class StopWatchForm
+    partial class TimeViewForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,20 +34,19 @@
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(72, 39);
+            this.label.Location = new System.Drawing.Point(116, 44);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(44, 13);
+            this.label.Size = new System.Drawing.Size(29, 13);
             this.label.TabIndex = 0;
-            this.label.Text = "whre!!!\\";
+            this.label.Text = "label";
             // 
-            // StopWatchForm
+            // TimeViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 109);
+            this.ClientSize = new System.Drawing.Size(284, 90);
             this.Controls.Add(this.label);
-            this.Name = "StopWatchForm";
-            this.Text = "StopWatchForm";
+            this.Name = "TimeViewForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
