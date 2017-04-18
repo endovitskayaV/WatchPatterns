@@ -9,12 +9,15 @@ namespace WatchPatterns
 {
     class StopwatchObserver : IObserver
     {
+        private IObservable watch;
         private Label label;
         private Form form;
         private DateTime time;
 
-        public StopwatchObserver()
+        public StopwatchObserver(IObservable watch)
         {
+            this.watch = watch;
+            watch.AddObserver(this);
             time = new DateTime(1, 1, 1, 0, 0, 0);
             CreateForm();
         }
@@ -31,11 +34,11 @@ namespace WatchPatterns
         public void OnHandleEvent(TimeSpan time)
         {
             this.time = this.time.AddSeconds(1);
-            MessageBox.Show(this.time.ToLongTimeString());
+           // MessageBox.Show(this.time.ToLongTimeString());
             // label.Text = alarmTime.ToLongTimeString();
             form.Text = this.time.ToLongTimeString();
         }
 
     }
 }
-
+//если форму закрыли-удалить из списка событий! 

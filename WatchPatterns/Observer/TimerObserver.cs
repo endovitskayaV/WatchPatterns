@@ -11,24 +11,28 @@ namespace WatchPatterns
     class TimerObserver : IObserver
     {
         private SoundPlayer sound;
-        //private IObservable watch;
+        private IObservable watch;
         private DateTime timerTime;
         private Label label;
         private Form form;
+        private bool IsRinging;
 
         public TimerObserver(IObservable watch, string soundString, DateTime time)
         {
             this.timerTime = time;
-           // this.watch = watch;
+            this.watch = watch;
             watch.AddObserver(this);
             sound = new SoundPlayer(soundString);
             CreateForm();
+            IsRinging = false;
         }
         public void OnHandleEvent(TimeSpan time)
         {
-            if (timerTime.Hour == 0 && timerTime.Minute == 0 && timerTime.Second == 0)
+            if (timerTime.Hour == 0 && timerTime.Minute == 0 && timerTime.Second == 0 && (!IsRinging))
             {
+                IsRinging= true;
                 Ring();
+                
             }
             else
             {
@@ -54,10 +58,12 @@ namespace WatchPatterns
             if (MessageBox.Show("Time is up!") == DialogResult.OK)
             {
                 sound.Stop();
+                IsRinging = false;
+                watch.RemoveObserver(this);      
             }
         }
 
 
     }
-}
+}//если форму закрыли-удалить из списка событий! 
 
