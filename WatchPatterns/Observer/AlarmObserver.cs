@@ -10,7 +10,6 @@ namespace WatchPatterns
 {
     class AlarmObserver : IObserver
     {
-        public event EventHandler OnHappens;
         private SoundPlayer sound;
         private IObservable watch;
         private DateTime alarmTime;
@@ -32,9 +31,9 @@ namespace WatchPatterns
             if ((time.Hours == alarmTime.Hour) && (time.Minutes == alarmTime.Minute) && (time.Seconds == alarmTime.Second))
             {
                 Ring();
-                if (this.OnHappens != null)
-                    OnHappens(this, new EventArgs());
-                watch.RemoveObserver(this);
+                //if (this.OnHappens != null)
+                  //  OnHappens(this, new EventArgs());
+               // watch.RemoveObserver(this);
             }
         }
 

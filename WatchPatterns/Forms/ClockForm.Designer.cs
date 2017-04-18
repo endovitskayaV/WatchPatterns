@@ -93,6 +93,8 @@
             this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.constDataLbl);
             this.Controls.Add(this.changeModeBtn);
+            this.MaximumSize = new System.Drawing.Size(300, 235);
+            this.MinimumSize = new System.Drawing.Size(300, 235);
             this.Name = "ClockForm";
             this.Text = "Clock";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);

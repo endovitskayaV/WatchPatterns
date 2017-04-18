@@ -29,19 +29,19 @@ namespace WatchPatterns
         { 
             IObserver newEvent = new AlarmObserver();
             DateTime curUserTime = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, (int)numericUpDownH.Value, (int)numericUpDownM.Value, (int)numericUpDownS.Value);
+            MessageBox.Show(comboBox.Text+" added");
             switch (comboBox.Text)
             {
                 case "Alarm":
-                    MessageBox.Show("Alarn added");
                     newEvent = new AlarmObserver(watch, "alarm.wav", curUserTime);
                     break;
                 case "Timer":
+                    newEvent = new TimerObserver(watch, "alarm.wav", curUserTime);
                     break;
                 case "Stopwatch":
-                    
+                    newEvent = new StopwatchObserver();
                     break;
             }
-
             watch.AddObserver(newEvent);
         }
     }      

@@ -4,16 +4,60 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace WatchPatterns
 {
     class TimerObserver : IObserver
     {
-      public void OnHandleEvent(TimeSpan time)
+        private SoundPlayer sound;
+        //private IObservable watch;
+        private DateTime timerTime;
+        private Label label;
+        private Form form;
+
+        public TimerObserver(IObservable watch, string soundString, DateTime time)
         {
-            TimeViewForm form = new TimeViewForm("Timer");
+            this.timerTime = time;
+           // this.watch = watch;
+            watch.AddObserver(this);
+            sound = new SoundPlayer(soundString);
+            CreateForm();
+        }
+        public void OnHandleEvent(TimeSpan time)
+        {
+            if (timerTime.Hour == 0 && timerTime.Minute == 0 && timerTime.Second == 0)
+            {
+                Ring();
+            }
+            else
+            {
+                timerTime = timerTime.AddSeconds(-1);
+                //MessageBox.Show(alarmTime.ToLongTimeString());
+               // label.Text = alarmTime.ToLongTimeString();
+                form.Text= timerTime.ToLongTimeString(); 
+            }
+        }
+
+        private void CreateForm()
+        {
+            form = new Form();
+            form.Text= timerTime.ToLongTimeString();
+            // label = new Label();
+            // form.Controls.Add(label);
+            // label.Text = "dhfg"; //alarmTime.ToLongTimeString();
             form.Show();
         }
+        private void Ring()
+        {
+            sound.Play();
+            if (MessageBox.Show("Time is up!") == DialogResult.OK)
+            {
+                sound.Stop();
+            }
+        }
+
+
     }
 }
 
