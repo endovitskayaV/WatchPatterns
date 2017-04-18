@@ -37,25 +37,14 @@ namespace WatchPatterns
                 watch.RemoveObserver(this);
             }
         }
-       /* public  void Update(TimeSpan time)
-        {
-            if ((time.Hours == alarmTime.Hour) && (time.Minutes == alarmTime.Minute) && (time.Seconds == alarmTime.Second))
-            {
-                Ring();
-                if (this.OnHappens != null)
-                    OnHappens(this, new EventArgs());
-                watch.RemoveObserver(this);
-            }
-        }
-        */
+
         private void Ring()
         {
-            MessageBox.Show("Alarm");
-            /* sound.Play();
+            sound.Play();
             if (MessageBox.Show("Alarm") == DialogResult.OK)
             {
                 sound.Stop();
-            }*/
+            }
         }
     }
 }

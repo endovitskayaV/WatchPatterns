@@ -33,7 +33,7 @@ namespace WatchPatterns
             {
                 case "Alarm":
                     MessageBox.Show("Alarn added");
-                    newEvent = new AlarmObserver(watch, "alarm.mp3", curUserTime);
+                    newEvent = new AlarmObserver(watch, "alarm.wav", curUserTime);
                     break;
                 case "Timer":
                     break;
