@@ -31,8 +31,6 @@
             this.addBtn = new System.Windows.Forms.Button();
             this.comboBox = new System.Windows.Forms.ComboBox();
             this.showEventsBtn = new System.Windows.Forms.Button();
-            this.eventsGrid = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.removeEvent_Btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,7 +39,7 @@
             this.numericUpDownM = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownS = new System.Windows.Forms.NumericUpDown();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.eventsGrid)).BeginInit();
+            this.eventsListBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownS)).BeginInit();
@@ -50,7 +48,7 @@
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(18, 118);
+            this.addBtn.Location = new System.Drawing.Point(24, 118);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(75, 23);
             this.addBtn.TabIndex = 0;
@@ -65,7 +63,7 @@
             "Alarm",
             "Timer",
             "Stopwatch"});
-            this.comboBox.Location = new System.Drawing.Point(24, 72);
+            this.comboBox.Location = new System.Drawing.Point(31, 72);
             this.comboBox.Name = "comboBox";
             this.comboBox.Size = new System.Drawing.Size(144, 21);
             this.comboBox.TabIndex = 7;
@@ -73,36 +71,13 @@
             // 
             // showEventsBtn
             // 
-            this.showEventsBtn.Location = new System.Drawing.Point(100, 118);
+            this.showEventsBtn.Location = new System.Drawing.Point(105, 118);
             this.showEventsBtn.Name = "showEventsBtn";
             this.showEventsBtn.Size = new System.Drawing.Size(75, 23);
             this.showEventsBtn.TabIndex = 9;
             this.showEventsBtn.Text = "Show all";
             this.showEventsBtn.UseVisualStyleBackColor = true;
             this.showEventsBtn.Click += new System.EventHandler(this.showEventsBtn_Click);
-            // 
-            // eventsGrid
-            // 
-            this.eventsGrid.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.eventsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.eventsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.eventsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
-            this.eventsGrid.Location = new System.Drawing.Point(12, 163);
-            this.eventsGrid.Name = "eventsGrid";
-            this.eventsGrid.Size = new System.Drawing.Size(174, 110);
-            this.eventsGrid.TabIndex = 10;
-            this.eventsGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.eventsGrid_CellClick);
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 110F;
-            this.Column1.HeaderText = "";
-            this.Column1.MinimumWidth = 110;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column1.Width = 110;
             // 
             // removeEvent_Btn
             // 
@@ -187,27 +162,35 @@
             this.groupBox.Controls.Add(this.label2);
             this.groupBox.Controls.Add(this.label1);
             this.groupBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox.Location = new System.Drawing.Point(18, 2);
+            this.groupBox.Location = new System.Drawing.Point(24, 2);
             this.groupBox.Name = "groupBox";
             this.groupBox.Size = new System.Drawing.Size(163, 64);
             this.groupBox.TabIndex = 8;
             this.groupBox.TabStop = false;
             // 
+            // eventsListBox
+            // 
+            this.eventsListBox.FormattingEnabled = true;
+            this.eventsListBox.Location = new System.Drawing.Point(18, 165);
+            this.eventsListBox.Name = "eventsListBox";
+            this.eventsListBox.Size = new System.Drawing.Size(163, 108);
+            this.eventsListBox.TabIndex = 12;
+            // 
             // EventsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(198, 152);
+            this.ClientSize = new System.Drawing.Size(208, 153);
+            this.Controls.Add(this.eventsListBox);
             this.Controls.Add(this.removeEvent_Btn);
-            this.Controls.Add(this.eventsGrid);
             this.Controls.Add(this.showEventsBtn);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.comboBox);
             this.Controls.Add(this.addBtn);
+            this.MinimumSize = new System.Drawing.Size(214, 192);
             this.Name = "EventsForm";
             this.Text = "Events";
             this.Load += new System.EventHandler(this.EventsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.eventsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownS)).EndInit();
@@ -222,9 +205,7 @@
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.ComboBox comboBox;
         private System.Windows.Forms.Button showEventsBtn;
-        private System.Windows.Forms.DataGridView eventsGrid;
         private System.Windows.Forms.Button removeEvent_Btn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericUpDownH;
@@ -232,5 +213,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDownM;
         private System.Windows.Forms.NumericUpDown numericUpDownS;
         private System.Windows.Forms.GroupBox groupBox;
+        private System.Windows.Forms.ListBox eventsListBox;
     }
 }

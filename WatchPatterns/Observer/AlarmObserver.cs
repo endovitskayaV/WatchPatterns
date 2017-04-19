@@ -14,6 +14,14 @@ namespace WatchPatterns
         private IObservable watch;
         private DateTime alarmTime;
 
+        public DateTime AlarmTime
+        {
+            get
+            {
+                return alarmTime;
+            }
+        }
+
         public AlarmObserver()
         {
         }
@@ -31,9 +39,6 @@ namespace WatchPatterns
             if ((time.Hours == alarmTime.Hour) && (time.Minutes == alarmTime.Minute) && (time.Seconds == alarmTime.Second))
             {
                 Ring();
-                //if (this.OnHappens != null)
-                  //  OnHappens(this, new EventArgs());
-               // watch.RemoveObserver(this);
             }
         }
 
@@ -43,6 +48,7 @@ namespace WatchPatterns
             if (MessageBox.Show("Alarm") == DialogResult.OK)
             {
                 sound.Stop();
+                alarmTime.AddDays(1);
             }
         }
     }

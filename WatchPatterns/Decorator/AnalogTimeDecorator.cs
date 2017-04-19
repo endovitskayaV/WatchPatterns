@@ -15,9 +15,12 @@ namespace WatchPatterns
             Bitmap bitmap = new Bitmap(150, 150);
             Graphics grBuffer = Graphics.FromImage(bitmap);
             grBuffer.DrawImage(Image.FromFile("clock.jpg"), 0, 0);
-            grBuffer.DrawLine(new Pen(Brushes.Black), 75, 75, (int)Math.Truncate(75 + 75 * Math.Sin(2 * Math.PI * (double)this.Time.Seconds / 60)), (int)Math.Truncate(75 - 75 * Math.Cos(2 * Math.PI * (double)this.Time.Seconds / 60)));
-            grBuffer.DrawLine(new Pen(Brushes.Black, 2), 75, 75, (int)Math.Truncate(75 + 60 * Math.Sin(2 * Math.PI * (double)this.Time.Minutes / 60)), (int)Math.Truncate(75 - 60 * Math.Cos(2 * Math.PI * (double)this.Time.Minutes / 60)));
-            grBuffer.DrawLine(new Pen(Brushes.Black, 3), 75, 75, (int)Math.Truncate(75 + 45 * Math.Sin(2 * Math.PI * (double)this.Time.Hours / 12)), (int)Math.Truncate(75 - 45 * Math.Cos(2 * Math.PI * (double)this.Time.Hours / 12)));
+            grBuffer.DrawLine(new Pen(Brushes.Black, 1), 75, 75, (float)(65 * Math.Sin(this.Time.Seconds * 6 * (Math.PI / 180)) + 75), (float)(55 * Math.Cos(this.Time.Seconds * 6 * (Math.PI / 180)) * (-1) + 75));
+            grBuffer.DrawLine(new Pen(Brushes.Black, 2), 75, 75, (float)(60 * Math.Sin(this.Time.Minutes*6* (Math.PI / 180)) + 75), (float)(55 * Math.Cos(this.Time.Minutes * 6 * (Math.PI / 180)) * (-1) + 75));
+            double h = (this.Time.Hours);
+            if (h > 12)  h -= 12;
+            h = (h+ this.Time.Minutes / 60.0)*30*(Math.PI / 180);
+            grBuffer.DrawLine(new Pen(Brushes.Black, 3), 75, 75, (float)( 55*Math.Sin(h) +75), (float)(55* Math.Cos(h)*(-1)  + 75));
             graphTime.DrawImage(bitmap, 0, 0);
             grBuffer.Dispose();
             base.Draw(lb, graphTime);
